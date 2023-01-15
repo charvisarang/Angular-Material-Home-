@@ -1,0 +1,436 @@
+<!-- VIDEO-4(Typography) Baki che -->
+
+
+
+<!-- ====================================================================VIDEO-5(Buttons) 7 variant & 3 colors-->
+<!-- <button mat-button color="primary">mat-button</button>
+<button mat-raised-button color="primary">mat-raised-button</button>
+<button mat-stroked-button color="primary">mat-stroked-button</button>
+<button mat-flat-button color="primary">mat-flat-button</button>
+<button mat-fab color="primary">mat-fab</button>
+<button mat-mini-fab color="primary">mat-mini-fab</button> -->
+
+<!-- Circle Type -->
+<!-- <button mat-icon-button>
+  <mat-icon color="accent">home</mat-icon>
+</button>
+
+<button mat-icon-button>
+  <mat-icon color="accent">info</mat-icon>
+</button>
+
+<button mat-icon-button>
+  <mat-icon color="primary">done</mat-icon>
+</button>
+
+<button mat-fab>
+  <mat-icon color="primary">home</mat-icon>
+</button>
+<hr>
+<br> -->
+
+<!-- ================================================================================VIDEO-6(3 Buttons Toggle)-->
+<!-- 1)Simple Toggle thai -->
+<!-- <mat-button-toggle>Toggle</mat-button-toggle> -->
+
+
+<!-- 2)Toggle template refernce thi thai pan Boolean Value show thai (checked atle bydefault false reh toh true thai jai)-->
+<!-- <mat-button-toggle #btn checked="" disabled=" ">Toggle</mat-button-toggle>
+{{btn.checked}} -->
+
+<!-- 3)Radio Button & multiple lakhe atle checkbox thai jai -->
+<!-- <mat-button-toggle-group #choices="matButtonToggleGroup" multiple>
+  <mat-button-toggle value="angular">Angular</mat-button-toggle>
+  <mat-button-toggle value="react">React</mat-button-toggle>
+  <mat-button-toggle value="vue">Vue</mat-button-toggle>
+</mat-button-toggle-group>
+{{choices.value}} -->
+
+
+<!-- ============================================================VIDEO-7(Icons Buttons)[fonts.google.com site]-->
+<!-- <button mat-fab color="primary">
+  <mat-icon>favorite</mat-icon>
+</button>
+
+<button mat-mini-fab>
+  <mat-icon>lock</mat-icon>
+</button>
+
+<button mat-icon-button>
+  <mat-icon color="warn">motorcycle</mat-icon>
+</button>
+
+<button mat-button color="primary">
+  <mat-icon>list</mat-icon>
+</button> -->
+
+<!-- ===========================================================================================VIDEO-8(Badge)-->
+<!-- <div>
+  <span [matBadge]="notifications" matBadgeOverlap="false">Notifications</span>
+</div>
+
+<div>
+  <span matBadge="5" matBadgePosition="below before" matBadgeColor="warn" matBadgeSize="small"
+    matBadgeOverlap="false">Notifications</span>
+</div>
+
+<div>
+  <span matBadge="5" matBadgePosition="below after" matBadgeSize="medium" matBadgeOverlap="false">Notifications</span>
+</div>
+
+<div>
+  <span matBadge="5" matBadgePosition="above before" matBadgeSize="large" matBadgeOverlap="false">Notifications</span>
+</div> -->
+
+
+<!-- ================================================================================VIDEO-9(Progress Spinner)-->
+<!-- <mat-progress-spinner value="100"></mat-progress-spinner> -->
+
+<!-- <mat-spinner *ngIf="spinner"></mat-spinner>
+<button (click)="onLoadData()">Load Data</button> -->
+
+
+<!-- =========================================================================================VIDEO-10(Navbar)-->
+
+<!-- <mat-toolbar color="warn" class="navbar">
+  <div>Code Evolution</div>
+  <div>
+    <span>Home</span>
+    <span>About</span>
+    <span>Services</span>
+  </div>
+</mat-toolbar> -->
+
+<!-- ========================================================================================VIDEO-11(Sidenav)-->
+<!-- Ema ma 3 comp used thai(container,sidenav,content) -->
+<!--Sidenav always hidden reh atle ema mate OPENED karva pade -->
+<!-- Ave opened thai gayu nd site per click kre ta close bhi thai jai pan ave pachu open krvana reh tyare Property thi kr -->
+<!-- Ema ek attribute aave mode krine 3 values che a)over ma jem che temej b)push ma push kre sidenav ne c)side ma push ma differnce kbr ni paidi....... -->
+
+<!-- 1 Method -->
+<!-- <mat-sidenav-container>
+  <mat-sidenav [(opened)]="open" mode="side" #sidenav>Sidenav</mat-sidenav>
+  <mat-sidenav-content>Main Content
+    <button (click)="open=!open">Toggle</button>
+    <button (click)="sidenav.open()">Open</button>
+    <button (click)="sidenav.close()">Close</button>
+    <button (click)="sidenav.toggle()">Toggle</button>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+<!-- 2 Method -->
+<!-- Simple template ref and ek toggle button saate bhi thai jai line no--->
+<!-- mode 3 types na over,push(ja click kre ta close thai jai open button per click kre tebhi close thai jai nd main part ma color black thai jai a benfits aape khali) & side(side lai ne toh open kre ta perfect thai nd push kre ta open ma bhi close thai jai) -->
+<!-- mode game te rithe leva pade kem k bydefault over reh nd over baraber kaam ni kre -->
+
+
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened>
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <div class="toolbar">
+        <mat-toolbar color="primary">
+          <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+          <div class="box">
+            <mat-icon>favorite</mat-icon>
+            <mat-icon>info</mat-icon>
+            <mat-icon>share</mat-icon>
+          </div>
+        </mat-toolbar>
+      </div>
+    </div>
+    <button (click)="sidenav.toggle()">Toggle</button>
+    <button (click)="sidenav.open()">Open</button>
+    <button (click)="sidenav.close()">Close</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<!-- ==================================================================================VIDEO-12(Menu-Dropdown)-->
+<!-- <mat-menu #menu="matMenu" xPosition="before" yPosition="above">
+  <button mat-menu-item [mat-menu-trigger-for]="submenu">Frontend</button>
+  <button mat-menu-item [matMenuTriggerFor]="submenu2">Backend</button>
+</mat-menu>
+
+<button [matMenuTriggerFor]="menu" class="btn">Menu</button>
+
+<mat-menu #submenu="matMenu">
+  <button mat-menu-item>Angular</button>
+  <button mat-menu-item>React</button>
+  <button mat-menu-item>Vue</button>
+</mat-menu>
+
+
+<mat-menu #submenu2="matMenu">
+  <button mat-menu-item>DB</button>
+  <button mat-menu-item>QA</button>
+</mat-menu> -->
+<!-- matMenu directive che ej mukva pade  -->
+
+
+<!-- =========================================================================================--VIDEO-13(List)-->
+<!-- <mat-list>
+  <mat-list-item>Item 1</mat-list-item>
+  <mat-list-item>Item 2</mat-list-item>
+  <mat-list-item>Item 3</mat-list-item>
+</mat-list>
+
+<mat-nav-list>
+  <a href="#" mat-list-item><mat-icon>home</mat-icon>Home</a>
+  <a href="#" mat-list-item>About</a>
+  <a href="#" mat-list-item>Service</a>
+</mat-nav-list> -->
+
+<!-- =======================================================================================VIDEO-14(Grid List)-->
+<!-- <mat-grid-list cols="3" gutterSize="15" rowHeight="2:1">
+  <mat-grid-tile colspan="2">Item 1</mat-grid-tile>
+  <mat-grid-tile>Item 2</mat-grid-tile>
+  <mat-grid-tile>Item 3</mat-grid-tile>
+  <mat-grid-tile>Item 4</mat-grid-tile>
+  <mat-grid-tile>Item 5</mat-grid-tile>
+  <mat-grid-tile>Item 6</mat-grid-tile>
+</mat-grid-list> -->
+
+<!-- ================================================================================VIDEO-15(Expansion Panel)-->
+<!-- Ema che 2 panel banvela pan tine ek accordion krine banavu tima nakhi lidhu atle te 2 panel na parent bani gayu nd tima evu k ek khule ta biju ban thai jai nd biju khule te pehlu band thai jai atle mulit="true aipu atle banav at a time khule nd hidetoggle kairu ena thi arrow nikdi jai" -->
+
+<!-- <mat-accordion multi="true" hideToggle="">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Angular Fundamentals</mat-panel-title>
+      <mat-panel-description>3 hrs</mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is panel</p>
+    <mat-action-row>
+      <button mat-button>Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Angular Fundamentals 2</mat-panel-title>
+      <mat-panel-description>4 hrs</mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is panel</p>
+    <mat-action-row>
+      <button mat-button>Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion> -->
+
+<!-- ==========================================================================================VIDEO-16(Cards)-->
+<!-- <mat-card>
+  <mat-card-title>Card</mat-card-title>
+  <mat-card-content>This is card content</mat-card-content>
+  <mat-card-actions align="end"><button mat-stroked-button color="primary">Login</button></mat-card-actions>
+</mat-card> -->
+
+<!-- =============================================================================VIDEO-17(Tabs [chodi muiki])-->
+<!-- <mat-tab-group color="warn">
+  <mat-tab label="angular">Angular</mat-tab>
+  <mat-tab label="react">React</mat-tab>
+  <mat-tab label="vue">Vue</mat-tab>
+</mat-tab-group> -->
+
+<!-- ========================================================================================VIDEO-18(Stepper)-->
+<!-- 2 types of stepper ->Horizontal & Vertical -->
+
+<!-- To create Horizontal -->
+<!-- Ave linear (completed true reh tyare next per navigate thai) valu atle aapde kai transactions kryo nd step by step 1 pachi 2 pachi 3 thai ne next thai te che a -->
+
+<!-- div button valu ave previous and next button per javanu oii toh aav used krvnu -->
+
+<!-- <mat-horizontal-stepper linear="">
+  <mat-step label="Shipping Address" completed="true">Shipping Address</mat-step>
+  <mat-step label="Billing Address" completed="false">Billing Address
+    <div>
+      <button matStepperPrevious>Previous</button>
+      <button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Place Order" completed="false">Place Order</mat-step>
+</mat-horizontal-stepper> -->
+
+<!-- To create Vertical -->
+<!-- <mat-vertical-stepper>Bus atluj change krvanu</mat-vertical-stepper> -->
+
+<!-- ======================================================VIDEO-19(Input[ MatFormFieldModule,MatInputModule])-->
+<!-- Required atle * & ek text show thai pan * ni joyo atle hiderequiredmarker nakhe -->
+
+<!-- <mat-form-field hideRequiredMarker="" appearance="fill" color="accent">
+  <mat-label>Name</mat-label>
+  <input matInput required="">
+  <mat-hint align="end">Please enter 5 characters</mat-hint>
+</mat-form-field>
+
+
+<mat-form-field hideRequiredMarker="" appearance="outline" color="warn">
+  <mat-label>Age</mat-label>
+  <input matInput required="">
+  <mat-hint align="end">Please enter age</mat-hint>
+</mat-form-field> -->
+
+<!-- =========================================================================================VIDEO-20(Select)-->
+<!-- <mat-form-field>
+  <mat-label>Hobbies</mat-label>
+  <mat-select [(value)]="selectValue" multiple="">
+    <mat-option>None</mat-option>
+    <mat-option value="dancing">Dancing</mat-option>
+    <mat-option value="riding">Riding</mat-option>
+    <mat-option value="sleeping">Sleeping</mat-option>
+  </mat-select>
+</mat-form-field>
+{{selectValue}} -->
+<!-- ===================================================================================VIDEO-21(AutoComplete)-->
+<!-- <form action="">
+  <mat-form-field>
+    <input type="text" matInput [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let items of option" [value]="option">
+        {{items}}
+      </mat-option>
+    </mat-autocomplete> 
+  </mat-form-field>
+</form> -->
+
+
+
+
+<!-- ========================================================================VIDEO-22(Checkbox & Radio Button)-->
+<!-- <mat-checkbox>
+  Subscriber
+</mat-checkbox>
+<br>
+
+<mat-checkbox labelPosition="before" color="warn">
+  Subscriber
+</mat-checkbox>
+<br> -->
+
+<!-- <mat-radio-group>
+  <mat-radio-button value="angular" color="primary">Angular</mat-radio-button>
+  <mat-radio-button value="react" color="warn">React</mat-radio-button>
+  <mat-radio-button value="vue">Vue</mat-radio-button>
+</mat-radio-group> -->
+
+
+
+
+<!-- =====================================================================================VIDEO-23(DatePicker)-->
+<!-- MatDatepickerModule,MatNativeDateModule aa 2 module import kaira -->
+
+<!-- <mat-form-field>
+  <input type="text" matInput [matDatepicker]="myDatePicker" [matDatepickerFilter]="dateFilter">
+  <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+  <mat-datepicker #myDatePicker></mat-datepicker>
+</mat-form-field> -->
+
+
+
+<!-- ========================================================================================VIDEO-24(Tooltip)-->
+<!-- <button mat-stroked-button matTooltip="Welcome to Code Evolution" matTooltipPosition="above" 
+matTooltipShowDelay="2000" matTooltipHideDelay="2000">Hello</button> -->
+
+
+<!-- =======================================================================================VIDEO-25(Snackbar)-->
+
+<!-- <button mat-stroked-button (click)="openSnackBar('Item Deleted','Dismiss')">Delete</button> -->
+
+<!-- =====================================================================================VIDEO-26(Data Table)-->
+<!-- MatDialogModule,MatTableModule 2 import kairu -->
+
+
+
+<!-- ===========================================================================================VIDEO-27()-->
+<!-- ===========================================================================================VIDEO-28()-->
+<!-- ===========================================================================================VIDEO-29()-->
+<!-- ===========================================================================================VIDEO-30()-->
+<!-- ===========================================================================================VIDEO-31()-->
+<!-- ===========================================================================================VIDEO-32()-->
+
+
+
+
+
+
+
+<!-- =============================================================================================Full Project-->
+<!-- <mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Angular Project Using Crud</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="accent" (click)="openDialogForm()">Add Product</button>
+</mat-toolbar> -->
+
+
+<!-- <div class="container">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by category"> Category </th>
+        <td mat-cell *matCellDef="let row"> {{row.category}}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+        <td mat-cell *matCellDef="let row"> {{row.date| date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
+        <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+        <td mat-cell *matCellDef="let row"> {{row.price | currency:'INR'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="comments">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Comments </th>
+        <td mat-cell *matCellDef="let row"> {{row.comments}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="onEdit(row)">
+            <mat-icon color="primary">edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onDelete(row.id)">
+            <mat-icon color="warn">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div> -->
